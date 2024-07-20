@@ -37,21 +37,19 @@ def get_member(member_id):
 
 @app.route('/member', methods=['POST'])
 def post_member():
-    body_last_name = request.json.get("last_name")
-    body_first_name = request.json.get("first_name")
-    body_age = request.json.get("age")
-    body_id = request.json.get("id")
-    body_lucky_nembers = request.json.get("lucky_members")
+    body_first_name = request.json.get("first_name", None)
+    body_age = request.json.get("age", None)
+    body_id = request.json.get("id", None)
+    body_lucky_numbers = request.json.get("lucky_numbers", None)
 
     member =  {
         "id": body_id or jackson_family._generateId(),
         "first_name": body_first_name, 
-        "last_name": body_last_name,
         "age": body_age, 
-        "lucky_members": body_lucky_nembers
+        "lucky_numbers": body_lucky_numbers
     }
 
-    jackson_family._add_member(member)
+    jackson_family.add_member(member)
     return jsonify(member), 200
 
 @app.route('/member/<int:member_id>', methods=['DELETE'])

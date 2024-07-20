@@ -16,19 +16,19 @@ class FamilyStructure:
         # example list of members
         self._members = [ 
             {
-                "id": self._generateId(),
+                "id": 1,
                 "first_name": "John",
                 "age": 33, 
                 "lucky_numbers": [7, 13, 22]
             },  
             {    
-                 "id": self._generateId(),
+                 "id": 2,
                  "first_name": "Jane",  
                  "age": 35,
                  "lucky_numbers": [10, 14, 3]
             },
             {  
-                  "id": self._generateId(),
+                  "id": 3,
                   "first_name": "Jimmy",
                   "age": 5, 
                   "lucky_numbers": [1]
@@ -45,7 +45,7 @@ class FamilyStructure:
         # fill this method and update the return
         
         self._members.append(member)
-        pass
+        return self._members
     
     def delete_member(self, id):
         # fill this method and update the return
